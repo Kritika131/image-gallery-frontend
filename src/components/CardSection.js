@@ -11,7 +11,7 @@ export default function CardSection() {
   const fetchData = async()=>{
     try{
       // let data = await fetch('https://picsum.photos/v2/list?page=1&limit=6');
-      let data = await fetch('http://localhost:8080/api/getimages');
+      let data = await fetch(`${process.env.REACT_APP_BASE_URL}/api/getimages`);
       data = await data.json();
       if(data.status==="success"){
 
@@ -29,7 +29,7 @@ export default function CardSection() {
 
   
   const handleDelete=async(id)=>{
-      let response = await axios.delete(`http://localhost:8080/api/deleteimage/${id}`);
+      let response = await axios.delete(`${process.env.REACT_APP_BASE_URL}/api/deleteimage/${id}`);
       response = response.data;
       if(response.status==="success"){
         fetchData()

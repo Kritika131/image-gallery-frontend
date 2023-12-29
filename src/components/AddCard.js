@@ -29,9 +29,10 @@ export default function AddCard() {
     console.log("data-",data);
     console.log("clicked---");
 
-    let response = await axois.post("http://localhost:8080/api/addimagedata",data).data
+    let response = await axois.post(`${process.env.REACT_APP_BASE_URL}/api/addimagedata`,data)
+    response=response.data
       
-      console.log(response);
+      console.log("post response ",response);
       if(response.status==="success"){
         alert(response.msg)
         setData({

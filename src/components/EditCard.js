@@ -17,7 +17,7 @@ export default function EditCard() {
 
   
   const fetchData=async()=>{
-      let response=await (await axios.get(`http://localhost:8080/api/getimage/${id}`)).data
+      let response=await (await axios.get(`${process.env.REACT_APP_BASE_URL}/api/getimage/${id}`)).data
       // let response=await axios.patch(`http://localhost/8080/api/updateimage/${params.id}`)
       // console.log(response)
       if(response.status==="success"){
